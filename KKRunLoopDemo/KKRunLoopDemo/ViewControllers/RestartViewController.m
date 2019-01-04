@@ -26,12 +26,12 @@ void eHandler(NSException *exception){
                          [[exception userInfo] objectForKey:kCaughtExceptionStackInfoKey]];
     NSLog(@"%@",message);
     
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"程序崩溃了"
-//                                                    message:@"如果你能让程序起死回生，那你的决定是？"
-//                                                   delegate:self
-//                                          cancelButtonTitle:@"崩就蹦吧"
-//                                          otherButtonTitles:@"起死回生", nil];
-//    [alert show];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"程序崩溃了"
+                                                    message:@"如果你能让程序起死回生，那你的决定是？"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"崩就蹦吧"
+                                          otherButtonTitles:@"起死回生", nil];
+    [alert show];
     
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
