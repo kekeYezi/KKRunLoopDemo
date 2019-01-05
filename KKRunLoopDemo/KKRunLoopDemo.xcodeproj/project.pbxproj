@@ -20,6 +20,7 @@
 		A05927E621DE5BCD006513EB /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05927E521DE5BCD006513EB /* TimerViewController.m */; };
 		A05927E921DE5BDE006513EB /* ImageLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05927E821DE5BDE006513EB /* ImageLoadViewController.m */; };
 		A05927EC21DE5BF2006513EB /* RestartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05927EB21DE5BF2006513EB /* RestartViewController.m */; };
+		A0C4419421E0BC63009536BD /* KKMainThreadMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C4419321E0BC63009536BD /* KKMainThreadMonitor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		A05927E821DE5BDE006513EB /* ImageLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageLoadViewController.m; sourceTree = "<group>"; };
 		A05927EA21DE5BF2006513EB /* RestartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestartViewController.h; sourceTree = "<group>"; };
 		A05927EB21DE5BF2006513EB /* RestartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestartViewController.m; sourceTree = "<group>"; };
+		A0C4419221E0BC63009536BD /* KKMainThreadMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKMainThreadMonitor.h; sourceTree = "<group>"; };
+		A0C4419321E0BC63009536BD /* KKMainThreadMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKMainThreadMonitor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 		A05927DA21DE5B7E006513EB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A0C4419221E0BC63009536BD /* KKMainThreadMonitor.h */,
+				A0C4419321E0BC63009536BD /* KKMainThreadMonitor.m */,
 				A05927DC21DE5B7E006513EB /* MainThreadMonitorViewController.h */,
 				A05927DB21DE5B7E006513EB /* MainThreadMonitorViewController.m */,
 				A05927DE21DE5BA1006513EB /* ThreadAliveViewController.h */,
@@ -197,6 +202,7 @@
 				A05927E321DE5BBA006513EB /* AsyncLayeViewController.m in Sources */,
 				A039D49E21DCED9E00F689CB /* CFRunLoop.c in Sources */,
 				A039D48B21DCED5C00F689CB /* ViewController.m in Sources */,
+				A0C4419421E0BC63009536BD /* KKMainThreadMonitor.m in Sources */,
 				A039D49621DCED5E00F689CB /* main.m in Sources */,
 				A05927DD21DE5B7E006513EB /* MainThreadMonitorViewController.m in Sources */,
 				A05927E021DE5BA1006513EB /* ThreadAliveViewController.m in Sources */,

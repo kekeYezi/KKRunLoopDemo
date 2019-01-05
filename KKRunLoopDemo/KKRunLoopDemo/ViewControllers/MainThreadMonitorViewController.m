@@ -7,9 +7,11 @@
 //
 
 #import "MainThreadMonitorViewController.h"
+#import "KKMainThreadMonitor.h"
+#import "FluencyMonitor.h"
 
-@interface MainThreadMonitorViewController ()
-
+@interface MainThreadMonitorViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) UITableView *mainTableView;
 @end
 
 @implementation MainThreadMonitorViewController
@@ -17,7 +19,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+//    [[KKMainThreadMonitor sharedInstance] start];
+    [[FluencyMonitor shareMonitor] start];
+    
+    self.mainTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    self.mainTableView.delegate = self;
+    self.mainTableView.dataSource = self;
+    [self.view addSubview:self.mainTableView];
     // Do any additional setup after loading the view.
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1000;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifier  = @"KKRunLoopCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell                         = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.selectionStyle          = UITableViewCellSelectionStyleNone;
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
+    
+    if (indexPath.row % 100 == 0) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%ld 我是卡顿行",indexPath.row];
+        sleep(1);
+    }
+    
+    return cell;
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [[KKMainThreadMonitor sharedInstance] stop];
 }
 
 /*
