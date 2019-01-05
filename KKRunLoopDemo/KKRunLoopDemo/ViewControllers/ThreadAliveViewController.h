@@ -6,6 +6,8 @@
 //  Copyright © 2019 kekeyezi. All rights reserved.
 //
 
+//  demo只演示了最基础的线程保活，其实还有很多更深的用法
+
 /*
 AF 2.X 经典代码
  
