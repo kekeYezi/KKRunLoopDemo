@@ -6,6 +6,30 @@
 //  Copyright © 2019 kekeyezi. All rights reserved.
 //
 
+/*
+AF 2.X 经典代码
+ 
+ + (NSThread *)networkRequestThread {
+    static NSThread *_networkRequestThread = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _networkRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(networkRequestThreadEntryPoint:) object:nil];
+        [_networkRequestThread start];
+    });
+    return _networkRequestThread;
+ }
+ 
+ + (void)networkRequestThreadEntryPoint:(id)__unused object {
+    @autoreleasepool {
+        [[NSThread currentThread] setName:@"AFNetworking"];
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+        [runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+        [runLoop run];
+    }
+ }
+
+ */
+
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
