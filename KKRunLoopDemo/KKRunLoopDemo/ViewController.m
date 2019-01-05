@@ -7,6 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "ViewControllers/MainThreadMonitorViewController.h"
+#import "ViewControllers/ThreadAliveViewController.h"
+#import "ViewControllers/AsyncLayeViewController.h"
+#import "ViewControllers/TimerViewController.h"
+#import "ViewControllers/ImageLoadViewController.h"
 #import "ViewControllers/RestartViewController.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -56,11 +61,48 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"1");
     
-    RestartViewController *controller = [[RestartViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
-
+    UIViewController *controller = nil;
+    switch (indexPath.row) {
+        case 0: {
+            controller = [[MainThreadMonitorViewController alloc] init];
+            controller.title = self.data[indexPath.row];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        case 1: {
+            controller = [[ThreadAliveViewController alloc] init];
+            controller.title = self.data[indexPath.row];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        case 2: {
+            controller = [[AsyncLayeViewController alloc] init];
+            controller.title = self.data[indexPath.row];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        case 3: {
+            controller = [[TimerViewController alloc] init];
+            controller.title = self.data[indexPath.row];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        case 4: {
+            controller = [[ImageLoadViewController alloc] init];
+            controller.title = self.data[indexPath.row];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        case 5: {
+            controller = [[RestartViewController alloc] init];
+            controller.title = self.data[indexPath.row];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 

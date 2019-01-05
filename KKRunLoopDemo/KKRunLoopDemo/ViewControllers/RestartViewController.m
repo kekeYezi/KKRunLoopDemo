@@ -31,9 +31,9 @@ void eHandler(NSException *exception) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     NSSetUncaughtExceptionHandler(&eHandler);
     
-    self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"重启RunLoop";
     // Do any additional setup after loading the view.
 }

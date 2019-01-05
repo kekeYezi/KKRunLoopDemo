@@ -16,17 +16,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    KKThread *therad = [[KKThread alloc] initWithTarget:self selector:@selector(caculate) object:nil];
+    [therad start];
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)caculate {
+    long sum = 0;
+    for (int i = 0; i <100 ; i ++) {
+        for (int j = 0; j < 100; j ++) {
+            sum = i + j;
+        }
+    }
+    NSLog(@"计算结束 结果: %ld", sum);
 }
-*/
+
+@end
+
+
+@implementation KKThread
+
+- (void)dealloc {
+    NSLog(@"KKThread 释放了");
+}
 
 @end
