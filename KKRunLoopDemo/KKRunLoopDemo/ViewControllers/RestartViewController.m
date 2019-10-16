@@ -17,7 +17,6 @@
 @implementation RestartViewController
 
 void eHandler(NSException *exception) {
-
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
     
@@ -26,7 +25,6 @@ void eHandler(NSException *exception) {
             CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
         }
     }
-
 }
 
 - (void)viewDidLoad {

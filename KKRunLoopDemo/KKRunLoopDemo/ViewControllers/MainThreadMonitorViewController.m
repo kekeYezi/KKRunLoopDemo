@@ -8,7 +8,7 @@
 
 #import "MainThreadMonitorViewController.h"
 #import "KKMainThreadMonitor.h"
-#import "FluencyMonitor.h"
+//#import "FluencyMonitor.h"
 
 @interface MainThreadMonitorViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *mainTableView;
@@ -20,8 +20,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-//    [[KKMainThreadMonitor sharedInstance] start];
-    [[FluencyMonitor shareMonitor] start];
+    [[KKMainThreadMonitor sharedInstance] start];
+//    [[FluencyMonitor shareMonitor] start];
     
     self.mainTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.mainTableView.delegate = self;
@@ -50,12 +50,21 @@
     
     if (indexPath.row % 100 == 0) {
         cell.textLabel.text = [NSString stringWithFormat:@"%ld 我是卡顿行",indexPath.row];
-        sleep(1);
+//        sleep(1);
+        [self lightTestActions];
     }
     
     return cell;
 }
 
+- (void)lightTestActions {
+    NSMutableString *str = [[NSMutableString alloc] init];
+    for (int i = 0; i < 500000; i++) {
+        for (int j = 0; j < 20; j++) {
+            [str appendString:@"1"];
+        }
+    }
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [[KKMainThreadMonitor sharedInstance] stop];
